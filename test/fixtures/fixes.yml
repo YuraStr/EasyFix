@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  description: MyText
+  level_id: 1
+  sign_off_user_id: 1
+  sign_off_date: 2018-04-09 15:02:09
+  is_interlinked: false
+  status_id: 1
+
+two:
+  number: MyString
+  description: MyText
+  level_id: 1
+  sign_off_user_id: 1
+  sign_off_date: 2018-04-09 15:02:09
+  is_interlinked: false
+  status_id: 1

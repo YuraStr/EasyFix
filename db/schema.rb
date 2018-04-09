@@ -10,7 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180406132227) do
+ActiveRecord::Schema.define(version: 20180409124337) do
+
+  create_table "fixes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "number"
+    t.text "description"
+    t.integer "sign_off_user_id"
+    t.datetime "sign_off_date"
+    t.boolean "is_interlinked"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "level_id"
+    t.bigint "status_id"
+    t.index ["level_id"], name: "index_fixes_on_level_id"
+    t.index ["status_id"], name: "index_fixes_on_status_id"
+  end
+
+  create_table "levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "test_level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "promotion_forms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.bigint "fix_id"
+    t.text "description"
+    t.bigint "level_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fix_id"], name: "index_promotion_forms_on_fix_id"
+    t.index ["level_id"], name: "index_promotion_forms_on_level_id"
+  end
+
+  create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -29,4 +67,8 @@ ActiveRecord::Schema.define(version: 20180406132227) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "fixes", "levels"
+  add_foreign_key "fixes", "statuses"
+  add_foreign_key "promotion_forms", "fixes"
+  add_foreign_key "promotion_forms", "levels"
 end
