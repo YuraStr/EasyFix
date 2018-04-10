@@ -16,11 +16,9 @@ ActiveRecord::Schema.define(version: 20180409123609) do
     t.string "number"
     t.text "description"
     t.bigint "level_id"
-    t.bigint "status_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["level_id"], name: "index_fixes_on_level_id"
-    t.index ["status_id"], name: "index_fixes_on_status_id"
   end
 
   create_table "levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -41,12 +39,6 @@ ActiveRecord::Schema.define(version: 20180409123609) do
     t.index ["level_id"], name: "index_promotion_forms_on_level_id"
   end
 
-  create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -65,7 +57,6 @@ ActiveRecord::Schema.define(version: 20180409123609) do
   end
 
   add_foreign_key "fixes", "levels"
-  add_foreign_key "fixes", "statuses"
   add_foreign_key "promotion_forms", "fixes"
   add_foreign_key "promotion_forms", "levels"
 end

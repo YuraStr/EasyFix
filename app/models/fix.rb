@@ -1,4 +1,5 @@
 class Fix < ApplicationRecord
-  belongs_to :status
-  has_many :promotion_forms
+  has_many :promotion_forms, dependent: :destroy
+
+  enum status: [:in_development, :uat_testing, :e2e_testing, :ready_for_prod]
 end
