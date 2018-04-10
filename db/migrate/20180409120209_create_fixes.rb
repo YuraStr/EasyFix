@@ -3,7 +3,7 @@ class CreateFixes < ActiveRecord::Migration[5.1]
     create_table :fixes do |t|
       t.string :number
       t.text :description
-      t.references :level, foreign_key: true
+      t.belongs_to :level, index: true
 
       t.timestamps
     end

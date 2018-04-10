@@ -56,7 +56,5 @@ ActiveRecord::Schema.define(version: 20180409123609) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "fixes", "levels"
   add_foreign_key "promotion_forms", "fixes"
-  add_foreign_key "promotion_forms", "levels"
 end

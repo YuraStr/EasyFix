@@ -4,7 +4,7 @@ class CreatePromotionForms < ActiveRecord::Migration[5.1]
       t.string :name
       t.references :fix, foreign_key: true
       t.text :description
-      t.references :level, foreign_key: true
+      t.belongs_to :level, index: true
 
       t.timestamps
     end
