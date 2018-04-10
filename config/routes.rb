@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   root to: "devise/sessions#new"
 
-  resources :fixes
+  resources :fixes do
+    resources :promotion_forms
+  end
 end

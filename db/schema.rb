@@ -10,18 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180409124337) do
+ActiveRecord::Schema.define(version: 20180409123609) do
 
   create_table "fixes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "number"
     t.text "description"
-    t.integer "sign_off_user_id"
-    t.datetime "sign_off_date"
-    t.boolean "is_interlinked"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.bigint "level_id"
     t.bigint "status_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["level_id"], name: "index_fixes_on_level_id"
     t.index ["status_id"], name: "index_fixes_on_status_id"
   end

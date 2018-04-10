@@ -21,14 +21,12 @@
               <li><%= link_to t("layouts.application.navbar.edit_profile"), edit_user_registration_path %></li>
               <li class="divider"></li>
               <li><%= link_to t("layouts.application.navbar.new_site"), new_user_site_path(current_user) %></li>
-              <li><%= link_to t("layouts.application.navbar.pictures"), user_pictures_path(current_user) %></li>
               <li class="divider"></li>
               <li><%= link_to t("layouts.application.navbar.log_out"), destroy_user_session_path, :method => :delete %></li>
             </ul>
           </li>
         <% else %>
           <li><%= link_to t("layouts.application.navbar.log_in"), new_user_session_path %></li>
-          <li><%= link_to t("layouts.application.navbar.sign_up"), new_user_registration_path %></li>
         <% end %>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= params[:locale] %><span class="caret"></span></a>
