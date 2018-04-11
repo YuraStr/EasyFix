@@ -2,13 +2,13 @@
   <div class="form-group">
     <%= form_for @fix, url: {:action => :create} do |f| %>
       <p>
-        <%= f.label "Fix number: " %>
-        <%= @number %>
+        <%= f.label "Fix number:"%>
+        <%= @fix.number %>
       </p>
 
       <p>
         <%= f.label "Description" %>
-        <%= f.text_area :description, class: 'form-control' %>
+        <%= f.text_field :description, class: 'form-control' %>
       </p>
 
       <div class="btn-group" role="group">

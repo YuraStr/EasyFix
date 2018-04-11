@@ -6,11 +6,12 @@ class FixesController < ApplicationController
 
   def new
     @fix = Fix.new
-    @number = 'ADM'.concat(new_fix_number)
+    @fix.number = 'ADM'.concat(new_fix_number)
   end
 
   def create
     @fix = Fix.new(fix_params)
+    @fix.number = 'ADM'.concat(new_fix_number)
     @fix.save
     redirect_to fixes_path
   end
@@ -22,6 +23,6 @@ class FixesController < ApplicationController
   end
 
   def fix_params
-    params.require(:fix).permit(:number, :description)
+    params.require(:fix).permit(:description)
   end
 end
