@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180411202929) do
+ActiveRecord::Schema.define(version: 20180412125533) do
 
   create_table "fix_numbers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "number"
@@ -22,9 +22,12 @@ ActiveRecord::Schema.define(version: 20180411202929) do
     t.string "number"
     t.text "description"
     t.bigint "level_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status", default: "ww_development"
     t.index ["level_id"], name: "index_fixes_on_level_id"
+    t.index ["user_id"], name: "index_fixes_on_user_id"
   end
 
   create_table "levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -63,5 +66,6 @@ ActiveRecord::Schema.define(version: 20180411202929) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "fixes", "users"
   add_foreign_key "promotion_forms", "fixes"
 end

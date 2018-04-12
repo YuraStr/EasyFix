@@ -1,4 +1,4 @@
 class PromotionForm < ApplicationRecord
   belongs_to :fix
-  has_one :level
+  belongs_to :level
 end
