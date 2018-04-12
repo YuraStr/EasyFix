@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180412125533) do
+ActiveRecord::Schema.define(version: 20180412143011) do
 
   create_table "fix_numbers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "number"
@@ -35,6 +35,22 @@ ActiveRecord::Schema.define(version: 20180412125533) do
     t.string "test_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "member_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.bigint "member_type_id"
+    t.bigint "promotion_form_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_type_id"], name: "index_members_on_member_type_id"
+    t.index ["promotion_form_id"], name: "index_members_on_promotion_form_id"
   end
 
   create_table "promotion_forms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -67,5 +83,7 @@ ActiveRecord::Schema.define(version: 20180412125533) do
   end
 
   add_foreign_key "fixes", "users"
+  add_foreign_key "members", "member_types"
+  add_foreign_key "members", "promotion_forms"
   add_foreign_key "promotion_forms", "fixes"
 end

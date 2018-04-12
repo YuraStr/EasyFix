@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  member_type: one
+  promotion_form: one
+
+two:
+  name: MyString
+  member_type: two
+  promotion_form: two

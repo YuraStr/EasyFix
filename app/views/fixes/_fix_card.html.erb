@@ -4,7 +4,7 @@
       <% @fixes.each do |fix| %>
         <div class="col-md-4 col-sm-4 col-xs-12"
              style='height:300px; cursor:pointer'
-             onclick="window.location='<%= root_path %>'">
+             onclick="window.location='<%= user_fix_path(fix.user, fix) %>'">
           <div>
             <h3><%= fix.number %></h3>
             <p><%= fix.description %></p>

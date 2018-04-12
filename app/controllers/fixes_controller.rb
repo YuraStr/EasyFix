@@ -18,6 +18,10 @@ class FixesController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @fix = Fix.find([:id])
+  end
+
   private
 
   def set_user
