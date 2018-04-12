@@ -3,12 +3,13 @@
     <div class="row stylish-panel">
       <% @fixes.each do |fix| %>
         <div class="col-md-4 col-sm-4 col-xs-12"
-             style='height:250px; cursor:pointer'
+             style='height:300px; cursor:pointer'
              onclick="window.location='<%= root_path %>'">
           <div>
             <h3><%= fix.number %></h3>
             <p><%= fix.description %></p>
             <p><%= fix.level.name %>/<%= fix.level.test_level %></p>
+            <p><%= fix.read_attribute_before_type_cast('status') %></p>
             <p>Created by: <%= fix.user.username %></p>
             <p>Created at: <%= fix.created_at %></p>
           </div>
