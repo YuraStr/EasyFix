@@ -9,6 +9,9 @@
         <div class="fix-section-header">DESCRIPTION</div>
         <%= @fix.description %>
         <div class="fix-section-header">PROMOTION FORMS</div>
+        <% @fix.promotion_forms.each do |form| %>
+          <%= form.name %>
+        <% end %>
       </div>
     </div>
     <div class="col-md-4">
