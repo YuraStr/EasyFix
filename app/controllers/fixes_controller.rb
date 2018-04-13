@@ -19,7 +19,7 @@ class FixesController < ApplicationController
   end
 
   def show
-    @fix = Fix.find([:id])
+    @fix = Fix.find(params[:id])
   end
 
   private

@@ -1,3 +1,18 @@
-<div class="col-md-offset-2 col-md-10">
-  <h2>In fix/show.html.erb</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h4 style="padding-bottom: 15px">Detailed information</h4>
+      <div class="container">
+        FIX NUMBER: <%= @fix.number %>
+        <div class="fix-section-header">FIX STATUS</div>
+        ADM status: <%= @fix.status_before_type_cast %>
+        <div class="fix-section-header">DESCRIPTION</div>
+        <%= @fix.description %>
+        <div class="fix-section-header">PROMOTION FORMS</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h4>History</h4>
+    </div>
+  </div>
 </div>

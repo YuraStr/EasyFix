@@ -7,7 +7,7 @@
              onclick="window.location='<%= user_fix_path(fix.user, fix) %>'">
           <div>
             <h3><%= fix.number %></h3>
-            <p><%= fix.description %></p>
+            <p><%= fix.description.split(".").first %></p>
             <p><%= fix.level.name %>/<%= fix.level.test_level %></p>
             <p><%= fix.read_attribute_before_type_cast('status') %></p>
             <p>Created by: <%= fix.user.username %></p>
