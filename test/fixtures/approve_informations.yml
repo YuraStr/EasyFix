@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fix: one
+  from_level: one
+  to_level: one
+  user: one
+  date: 2018-05-14 14:37:05
+
+two:
+  fix: two
+  from_level: two
+  to_level: two
+  user: two
+  date: 2018-05-14 14:37:05

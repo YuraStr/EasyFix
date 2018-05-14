@@ -1,0 +1,5 @@
+<div class="tab-pane" id="<%= form.name %>">
+  <% form.members.each do |member| %>
+    <%= member.name %>: <%= member.member_type.name %>
+  <% end %>
+</div>

@@ -1,0 +1,19 @@
+<div class="col-lg-10 col-lg-offset-1">
+  <div class="form-group">
+    <%= form_for @fix, url: {:action => :create} do |f| %>
+      <p>
+        <%= f.label "Fix number:"%>
+        <%= @fix.number %>
+      </p>
+
+      <p>
+        <%= f.label "Description" %>
+        <%= f.text_area :description, class: 'form-control' %>
+      </p>
+
+      <div class="btn-group" role="group">
+        <%= f.submit class: 'btn btn-success' %>
+      </div>
+    <% end %>
+  </div>
+</div>

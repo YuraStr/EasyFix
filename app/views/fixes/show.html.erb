@@ -9,13 +9,19 @@
         <div class="fix-section-header">DESCRIPTION</div>
         <%= @fix.description %>
         <div class="fix-section-header">PROMOTION FORMS</div>
+        <ul class="nav nav-pills">
         <% @fix.promotion_forms.each do |form| %>
-          <%= form.name %>
+          <li><a data-toggle="pill" href="#<%= form.name %>"><%= form.name %></a></li>
         <% end %>
+        </ul>
       </div>
     </div>
     <div class="col-md-4">
       <h4>History</h4>
     </div>
   </div>
+</div>
+
+<div class="tab-content">
+  <%= render partial: "fixes/promotion_form", collection: @fix.promotion_forms, as: :form %>
 </div>
