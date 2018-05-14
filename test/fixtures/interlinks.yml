@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  member: one
+  first_promform: one
+  second_promform: one
+  level: one
+
+two:
+  member: two
+  first_promform: two
+  second_promform: two
+  level: two

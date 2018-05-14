@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180514113704) do
+ActiveRecord::Schema.define(version: 20180514125644) do
 
   create_table "approve_informations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "fix_id"
@@ -41,6 +41,19 @@ ActiveRecord::Schema.define(version: 20180514113704) do
     t.string "status", default: "ww_development"
     t.index ["level_id"], name: "index_fixes_on_level_id"
     t.index ["user_id"], name: "index_fixes_on_user_id"
+  end
+
+  create_table "interlinks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "member_id"
+    t.bigint "first_promform_id"
+    t.bigint "second_promform_id"
+    t.bigint "level_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["first_promform_id"], name: "index_interlinks_on_first_promform_id"
+    t.index ["level_id"], name: "index_interlinks_on_level_id"
+    t.index ["member_id"], name: "index_interlinks_on_member_id"
+    t.index ["second_promform_id"], name: "index_interlinks_on_second_promform_id"
   end
 
   create_table "levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -98,6 +111,8 @@ ActiveRecord::Schema.define(version: 20180514113704) do
   add_foreign_key "approve_informations", "fixes"
   add_foreign_key "approve_informations", "users"
   add_foreign_key "fixes", "users"
+  add_foreign_key "interlinks", "levels"
+  add_foreign_key "interlinks", "members"
   add_foreign_key "members", "member_types"
   add_foreign_key "members", "promotion_forms"
   add_foreign_key "promotion_forms", "fixes"
