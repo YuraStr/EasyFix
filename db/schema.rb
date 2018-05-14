@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180514125644) do
+ActiveRecord::Schema.define(version: 20180514133120) do
 
   create_table "approve_informations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "fix_id"
@@ -63,6 +63,16 @@ ActiveRecord::Schema.define(version: 20180514125644) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "member_locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "member_type_id"
+    t.bigint "level_id"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["level_id"], name: "index_member_locations_on_level_id"
+    t.index ["member_type_id"], name: "index_member_locations_on_member_type_id"
+  end
+
   create_table "member_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -113,6 +123,8 @@ ActiveRecord::Schema.define(version: 20180514125644) do
   add_foreign_key "fixes", "users"
   add_foreign_key "interlinks", "levels"
   add_foreign_key "interlinks", "members"
+  add_foreign_key "member_locations", "levels"
+  add_foreign_key "member_locations", "member_types"
   add_foreign_key "members", "member_types"
   add_foreign_key "members", "promotion_forms"
   add_foreign_key "promotion_forms", "fixes"
