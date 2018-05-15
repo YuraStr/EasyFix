@@ -5,6 +5,7 @@ class CreateApproveInformations < ActiveRecord::Migration[5.1]
       t.references :from_level
       t.references :to_level
       t.references :user, foreign_key: true
+      t.string :action
 
       t.timestamps
     end

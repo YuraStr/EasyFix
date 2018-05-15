@@ -14,12 +14,17 @@ class FixesController < ApplicationController
     @fix = @user.fixes.new(fix_params)
     @fix.number = 'ADM'.concat(new_fix_number)
     @fix.level = Level.find(1)
+    @fix.status = 'ww_development'
     @fix.save
     redirect_to root_path
   end
 
   def show
     @fix = Fix.find(params[:id])
+  end
+
+  def build_promote
+    Fix.build_promote(@user.fixes.find(params[:fix_id]))
   end
 
   private

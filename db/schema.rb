@@ -10,19 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180514133120) do
+ActiveRecord::Schema.define(version: 20180515123202) do
 
-  create_table "approve_informations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "action_informations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "fix_id"
     t.bigint "from_level_id"
     t.bigint "to_level_id"
     t.bigint "user_id"
+    t.string "action"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["fix_id"], name: "index_approve_informations_on_fix_id"
-    t.index ["from_level_id"], name: "index_approve_informations_on_from_level_id"
-    t.index ["to_level_id"], name: "index_approve_informations_on_to_level_id"
-    t.index ["user_id"], name: "index_approve_informations_on_user_id"
+    t.index ["fix_id"], name: "index_action_informations_on_fix_id"
+    t.index ["from_level_id"], name: "index_action_informations_on_from_level_id"
+    t.index ["to_level_id"], name: "index_action_informations_on_to_level_id"
+    t.index ["user_id"], name: "index_action_informations_on_user_id"
   end
 
   create_table "fix_numbers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -118,8 +119,8 @@ ActiveRecord::Schema.define(version: 20180514133120) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "approve_informations", "fixes"
-  add_foreign_key "approve_informations", "users"
+  add_foreign_key "action_informations", "fixes"
+  add_foreign_key "action_informations", "users"
   add_foreign_key "fixes", "users"
   add_foreign_key "interlinks", "levels"
   add_foreign_key "interlinks", "members"

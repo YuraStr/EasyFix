@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :fixes do
       resources :promotion_forms
+      post 'build_promote'
     end
   end
 
-  root to: "fixes#index"
+  root to: 'fixes#index'
 end
