@@ -15,6 +15,7 @@
         <% end %>
         </ul>
         <%= link_to "Build/promote", user_fix_build_promote_path(@user, @fix), method: :post, class: "btn btn-default" %>
+        <%= link_to "New promotion form", '#new_promotion_form_modal', { 'data-toggle': 'modal', class: "btn btn-default" } %>
       </div>
     </div>
     <div class="col-md-4">
@@ -25,4 +26,21 @@
 
 <div class="tab-content">
   <%= render partial: "fixes/promotion_form", collection: @fix.promotion_forms, as: :form %>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="new_promotion_form_modal" tabindex="-1" role="dialog" aria-labelledby="promotionFormLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modalTitle" id="promotionFormLabel">New promotion form</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'promotion_forms/new_modal', modal: true %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>

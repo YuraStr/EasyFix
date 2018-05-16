@@ -21,6 +21,7 @@ class FixesController < ApplicationController
 
   def show
     @fix = Fix.find(params[:id])
+    @form = PromotionForm.new
   end
 
   def build_promote
