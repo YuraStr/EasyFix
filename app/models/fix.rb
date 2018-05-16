@@ -13,7 +13,8 @@ class Fix < ApplicationRecord
     ActionInformation.create(fix: fix,
                              from_level: fix.level,
                              to_level: @new_level,
-                             user: fix.user)
+                             user: fix.user,
+                             action: 'build and promote')
     fix.update_attribute(:level, @new_level)
   end
 end
