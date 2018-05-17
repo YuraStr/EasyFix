@@ -20,8 +20,7 @@ class FixesController < ApplicationController
   end
 
   def show
-    @fix = Fix.find(params[:id])
-    @form = PromotionForm.new
+    @fix = Fix.includes(promotion_forms: %i[members]).find(params[:id])
   end
 
   def build_promote

@@ -6,7 +6,13 @@ class PromotionFormsController < ApplicationController
   end
 
   def create
-    @form = @fix.promotion_forms.create(promform_params.merge(level_id: @fix.level.id))
+    @form = @fix.promotion_forms.create(promform_params)
+    @form.level = @fix.level
+    if @form.save
+      respond_to do |format|
+        format.js
+      end
+    end
 
     # respond_to do |format|
     #   if @form.save

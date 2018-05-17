@@ -2,18 +2,6 @@
 <% remote = modal ? true : false %>
 <%= form_for([@user, @fix, @fix.promotion_forms.build], remote: remote, html: { role: :form, 'data-model' =>'form' }) do |f| %>
 
-  <% if @form.errors.any? %>
-    <div id="error_explanation">
-      <h4><%= pluralize(@form.errors.count, "error") %> prohibited this form from being saved:</h4>
-
-      <ul>
-        <% @form.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="form-group">
     <%= f.label "Form name:", class: 'control-label' %>
     <%= f.text_field :name, class: 'form-control' %>
