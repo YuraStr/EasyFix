@@ -1,5 +1,6 @@
-$("ul.forms").append("<li><a data-toggle=\"pill\" href=\"#<%= @form.name %>\"><%= @form.name %></a></li>")
-$("#promotion_tabs").html("<%= escape_javascript render partial: @fix.promotion_forms.last, as: :form  %>")
-$("textarea.form-control").val('')
-$("input.form-control").val('')
-$("#new_promotion_form_modal").modal('toggle')
+$("ul.forms").append("<li><a data-toggle=\"pill\" href=\"#<%= @form.name %>\"><%= @form.name %></a></li>");
+$("#promotion_tabs").html("<%= escape_javascript render partial: @fix.promotion_forms.last, as: :form  %>");
+$("textarea.form-control").val('');
+$("input.form-control").val('');
+$("#new_promotion_form_modal").modal('toggle');
+$("#members_table").find("tr:gt(1)").remove();
