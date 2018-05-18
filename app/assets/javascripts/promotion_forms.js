@@ -1,15 +1,15 @@
 function addRow() {
-    $("#members_table tr:last").after('' +
-        '<tr>' +
+    let row = $('<tr>' +
         '<td>Name</td>' +
         '<td>Type</td>' +
-        '<td><a class="link-remove-row"><span class=\'glyphicon glyphicon-trash\'></span></a></td>' +
         '</tr>');
-}
 
-$(document).on('turbolinks:load', function() {
-    $(".table-class .link-remove-row").on("click", function (event) {
-        console.log(event);
+    let trash = $('<td><a class="link-remove-row"><span class=\'glyphicon glyphicon-trash\'></span></a></td>');
+
+    trash.click(function (event) {
         $(event.currentTarget).closest("tr").remove();
     });
-});
+    row.append(trash);
+
+    $("#members_table tr:last").after(row);
+}
