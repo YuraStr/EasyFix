@@ -21,6 +21,7 @@ class FixesController < ApplicationController
 
   def show
     @fix = Fix.includes(promotion_forms: %i[members]).find(params[:id])
+    @types = MemberType.all
   end
 
   def build_promote
