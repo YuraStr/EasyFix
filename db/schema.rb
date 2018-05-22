@@ -10,123 +10,142 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180515123202) do
+ActiveRecord::Schema.define(version: 20180522125157) do
 
-  create_table 'action_informations', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.bigint 'fix_id'
-    t.bigint 'from_level_id'
-    t.bigint 'to_level_id'
-    t.bigint 'user_id'
-    t.string 'action'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['fix_id'], name: 'index_action_informations_on_fix_id'
-    t.index ['from_level_id'], name: 'index_action_informations_on_from_level_id'
-    t.index ['to_level_id'], name: 'index_action_informations_on_to_level_id'
-    t.index ['user_id'], name: 'index_action_informations_on_user_id'
+  create_table "action_informations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "fix_id"
+    t.bigint "from_level_id"
+    t.bigint "to_level_id"
+    t.bigint "user_id"
+    t.string "action"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fix_id"], name: "index_action_informations_on_fix_id"
+    t.index ["from_level_id"], name: "index_action_informations_on_from_level_id"
+    t.index ["to_level_id"], name: "index_action_informations_on_to_level_id"
+    t.index ["user_id"], name: "index_action_informations_on_user_id"
   end
 
-  create_table 'fix_numbers', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.integer 'number'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "fix_numbers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'fixes', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.string 'number'
-    t.text 'description'
-    t.bigint 'level_id'
-    t.bigint 'user_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.string 'status', default: 'ww_development'
-    t.index ['level_id'], name: 'index_fixes_on_level_id'
-    t.index ['user_id'], name: 'index_fixes_on_user_id'
+  create_table "fixes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "number"
+    t.text "description"
+    t.bigint "level_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "status", default: "ww_development"
+    t.index ["level_id"], name: "index_fixes_on_level_id"
+    t.index ["user_id"], name: "index_fixes_on_user_id"
   end
 
-  create_table 'interlinks', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.bigint 'member_id'
-    t.bigint 'first_promform_id'
-    t.bigint 'second_promform_id'
-    t.bigint 'level_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['first_promform_id'], name: 'index_interlinks_on_first_promform_id'
-    t.index ['level_id'], name: 'index_interlinks_on_level_id'
-    t.index ['member_id'], name: 'index_interlinks_on_member_id'
-    t.index ['second_promform_id'], name: 'index_interlinks_on_second_promform_id'
+  create_table "interlinks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "member_id"
+    t.bigint "first_promform_id"
+    t.bigint "second_promform_id"
+    t.bigint "level_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["first_promform_id"], name: "index_interlinks_on_first_promform_id"
+    t.index ["level_id"], name: "index_interlinks_on_level_id"
+    t.index ["member_id"], name: "index_interlinks_on_member_id"
+    t.index ["second_promform_id"], name: "index_interlinks_on_second_promform_id"
   end
 
-  create_table 'levels', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.string 'name'
-    t.string 'test_level'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "test_level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'member_locations', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.bigint 'member_type_id'
-    t.bigint 'level_id'
-    t.string 'location'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['level_id'], name: 'index_member_locations_on_level_id'
-    t.index ['member_type_id'], name: 'index_member_locations_on_member_type_id'
+  create_table "member_locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "member_type_id"
+    t.bigint "level_id"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["level_id"], name: "index_member_locations_on_level_id"
+    t.index ["member_type_id"], name: "index_member_locations_on_member_type_id"
   end
 
-  create_table 'member_types', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.string 'name'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "member_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'members', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.string 'name'
-    t.bigint 'member_type_id'
-    t.bigint 'promotion_form_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['member_type_id'], name: 'index_members_on_member_type_id'
-    t.index ['promotion_form_id'], name: 'index_members_on_promotion_form_id'
+  create_table "members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.bigint "member_type_id"
+    t.bigint "promotion_form_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_type_id"], name: "index_members_on_member_type_id"
+    t.index ["promotion_form_id"], name: "index_members_on_promotion_form_id"
   end
 
-  create_table 'promotion_forms', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.string 'name'
-    t.bigint 'fix_id'
-    t.text 'description'
-    t.bigint 'level_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['fix_id'], name: 'index_promotion_forms_on_fix_id'
-    t.index ['level_id'], name: 'index_promotion_forms_on_level_id'
+  create_table "promotion_forms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.bigint "fix_id"
+    t.text "description"
+    t.bigint "level_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fix_id"], name: "index_promotion_forms_on_fix_id"
+    t.index ["level_id"], name: "index_promotion_forms_on_level_id"
   end
 
-  create_table 'users', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
-    t.string 'email', default: '', null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.integer 'sign_in_count', default: 0, null: false
-    t.datetime 'current_sign_in_at'
-    t.datetime 'last_sign_in_at'
-    t.string 'current_sign_in_ip'
-    t.string 'last_sign_in_ip'
-    t.string 'username'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['email'], name: 'index_users_on_email', unique: true
-    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
+  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
+    t.index ["name"], name: "index_roles_on_name"
+    t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
-  add_foreign_key 'action_informations', 'fixes'
-  add_foreign_key 'action_informations', 'users'
-  add_foreign_key 'fixes', 'users'
-  add_foreign_key 'interlinks', 'levels'
-  add_foreign_key 'interlinks', 'members'
-  add_foreign_key 'member_locations', 'levels'
-  add_foreign_key 'member_locations', 'member_types'
-  add_foreign_key 'members', 'member_types'
-  add_foreign_key 'members', 'promotion_forms'
-  add_foreign_key 'promotion_forms', 'fixes'
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.string "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "users_roles", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id"
+    t.bigint "role_id"
+    t.index ["role_id"], name: "index_users_roles_on_role_id"
+    t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
+    t.index ["user_id"], name: "index_users_roles_on_user_id"
+  end
+
+  add_foreign_key "action_informations", "fixes"
+  add_foreign_key "action_informations", "users"
+  add_foreign_key "fixes", "users"
+  add_foreign_key "interlinks", "levels"
+  add_foreign_key "interlinks", "members"
+  add_foreign_key "member_locations", "levels"
+  add_foreign_key "member_locations", "member_types"
+  add_foreign_key "members", "member_types"
+  add_foreign_key "members", "promotion_forms"
+  add_foreign_key "promotion_forms", "fixes"
 end
