@@ -29,6 +29,18 @@ class PromotionFormsController < ApplicationController
     # end
   end
 
+  def edit
+
+  end
+
+  def update
+
+  end
+
+  def destroy
+
+  end
+
   private
 
   def set_user_and_fix

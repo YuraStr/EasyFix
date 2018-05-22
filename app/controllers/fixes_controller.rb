@@ -19,6 +19,16 @@ class FixesController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+
+  end
+
+  def updateend
+
+  def destroy
+
+  end
+
   def show
     @fix = Fix.includes(promotion_forms: %i[members]).find(params[:id])
     @types = MemberType.all
